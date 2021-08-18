@@ -7,7 +7,7 @@ class WeatherInfo {
   final double temMax;
   final String weather;
   final int humidity;
-  final double windSpeed;
+  final dynamic windSpeed;
   WeatherInfo({
     required this.location,
     required this.temp,
@@ -22,8 +22,8 @@ class WeatherInfo {
     return WeatherInfo(
       location: map['name'],
       temp: map["main"]['temp'],
-      temMin: map["main"]['temMin'],
-      temMax: map["main"]['temMax'],
+      temMin: map["main"]['temp_min'],
+      temMax: map["main"]['temp_max'],
       weather: map['weather'][0]["description"],
       humidity: map["main"]['humidity'],
       windSpeed: map["wind"]['speed'],

@@ -9,6 +9,7 @@ Future<WeatherInfo> fetchWeather() async {
   final response = await http.get(Uri.parse(requestUrl));
   //200 is code for OK
   if (response.statusCode == 200) {
+    print(response.body);
     return WeatherInfo.fromJson(response.body);
   } else {
     throw Exception("Error loading API!");
