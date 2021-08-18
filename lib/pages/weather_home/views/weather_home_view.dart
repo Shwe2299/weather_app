@@ -3,6 +3,11 @@ import 'package:weather_app/global/functions/media_query.dart';
 import 'package:weather_app/global/widgets/weather_tile.dart';
 import 'package:weather_app/services/weather_api/weather_model.dart';
 
+double kToC(double kelValue) {
+  double celVal = (kelValue - 273.15);
+  return celVal;
+}
+
 class WeatherView extends StatelessWidget {
   const WeatherView({
     Key? key,
@@ -31,7 +36,7 @@ class WeatherView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 child: Text(
-                  weatherInfo.temp.toString() + "°",
+                  kToC(weatherInfo.temp).toString() + "°",
                   style: TextStyle(
                       color: Colors.purple,
                       fontSize: 40.0,
@@ -39,7 +44,7 @@ class WeatherView extends StatelessWidget {
                 ),
               ),
               Text(
-                "High of ${weatherInfo.temMax}°, low of ${weatherInfo.temMin}°",
+                "High of ${kToC(weatherInfo.temMax)}°, low of ${kToC(weatherInfo.temMin)}°",
                 style: TextStyle(
                     color: Color(0xff9e9e9e),
                     fontSize: 14.0,
@@ -56,7 +61,7 @@ class WeatherView extends StatelessWidget {
                 WeatherTile(
                   icon: Icons.thermostat_outlined,
                   title: "Temperature",
-                  subtitle: "${weatherInfo.temp} °F",
+                  subtitle: "${kToC(weatherInfo.temp)} °C",
                 ),
                 WeatherTile(
                   icon: Icons.filter_drama_outlined,
