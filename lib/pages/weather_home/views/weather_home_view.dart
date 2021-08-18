@@ -36,7 +36,7 @@ class WeatherView extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 child: Text(
-                  kToC(weatherInfo.temp).toString() + "°",
+                  kToC(weatherInfo.temp).toStringAsFixed(1) + "°",
                   style: TextStyle(
                       color: Colors.purple,
                       fontSize: 40.0,
@@ -44,7 +44,7 @@ class WeatherView extends StatelessWidget {
                 ),
               ),
               Text(
-                "High of ${kToC(weatherInfo.temMax)}°, low of ${kToC(weatherInfo.temMin)}°",
+                "High of ${kToC(weatherInfo.temMax).toStringAsFixed(1)}°, low of ${kToC(weatherInfo.temMin).toStringAsFixed(1)}°",
                 style: TextStyle(
                     color: Color(0xff9e9e9e),
                     fontSize: 14.0,
@@ -61,7 +61,7 @@ class WeatherView extends StatelessWidget {
                 WeatherTile(
                   icon: Icons.thermostat_outlined,
                   title: "Temperature",
-                  subtitle: "${kToC(weatherInfo.temp)} °C",
+                  subtitle: "${kToC(weatherInfo.temp).toStringAsFixed(1)} °C",
                 ),
                 WeatherTile(
                   icon: Icons.filter_drama_outlined,
